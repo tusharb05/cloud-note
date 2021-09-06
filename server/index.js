@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const registerRoute = require('./routes/register')
 const loginRoute = require('./routes/login')
+const cors = require('cors')
 
 const PORT = process.env.PORT || 5000
 const app = express()
@@ -13,6 +14,7 @@ mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true, useUnifiedTopol
 
 //Middleware
 app.use(express.json())
+app.use(cors())
 
 //Route middleware
 app.use('/api/user/register', registerRoute)

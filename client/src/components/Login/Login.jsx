@@ -1,31 +1,42 @@
 import React, {useState} from 'react'
-import './Register.css'
+import {useHistory, Link} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import { setLoginTrue } from '../../actions/login'
+import './Login.css'
 
-const Register = () => {
+const Login = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    async function handleSubmit(e){
+    const history = useHistory()
+    const dispatch = useDispatch()
+
+    const handleLogin = async (e)=>{
         e.preventDefault()
-        fetch('/user/register', {
+        fetch('http://localhost:5000/api/user/login', {
             method: 'POST',
             body: JSON.stringify({
                 username,
                 email,
                 password
             }),
-            headers: {
-                "Content-type": "application/json"
+            headers:{
+                'Content-type': 'application/json'
             }
         })
         .then(res=>res.json())
-        .then(data=>console.log(data))
-        
+        .then(data=>{
+            if(data.status === 'last step left!'){
+                dispatch(setLoginTrue())
+                history.push('/')
+            }
+        })
     }
+
     return (
         <div>
-            <form onSubmit={e=>handleSubmit(e)}>
+            <form onSubmit={e=>handleLogin(e)}>
                 <label htmlFor="">Username</label>
                 <input 
                     type="text"
@@ -48,8 +59,9 @@ const Register = () => {
 
                 <button>Add</button>
             </form>
+            <Link to="/register">Haven't registered yet?</Link>
         </div>
     )
 }
 
-export default Register
+export default Login
