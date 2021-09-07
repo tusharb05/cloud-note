@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const registerRoute = require('./routes/register')
 const loginRoute = require('./routes/login')
-const getNoteTitlesRoute = require('./routes/getNoteTitles')
+const getNotes = require('./routes/getNotes')
 const cors = require('cors')
 
 const PORT = process.env.PORT || 5000
@@ -20,6 +20,6 @@ app.use(cors())
 //Route middleware
 app.use('/api/user/register', registerRoute)
 app.use('/api/user/login', loginRoute)
-app.use('/api/notes/titles', getNoteTitlesRoute)
+app.use('/api/notes/titles', getNotes)
 
 app.listen(PORT, ()=>console.log('Server running'))

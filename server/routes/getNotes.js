@@ -4,8 +4,8 @@ const Note = require('../models/Note')
 router.get('/:id', async (req,res)=>{
     // const newNote = new Note({
     //     authorID: '6135c9d52ef333284d5f2119',
-    //     title: 'asdf',
-    //     body: 'this is random body'
+    //     title: 'second title',
+    //     body: 'body of the second title go brrrrr'
     // })
     // let savedNote = await newNote.save()
     console.log(req.params.id)

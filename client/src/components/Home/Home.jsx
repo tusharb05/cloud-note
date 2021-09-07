@@ -1,10 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import Sidebar from '../Sidebar/Sidebar'
 
 
 const Home = () => {
-    const loggedIn = useSelector(state=>state.loggedIn)
+    // const loggedIn = useSelector(state=>state.loggedIn)
 
     return (
         <div>
