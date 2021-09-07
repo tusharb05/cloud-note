@@ -8,3 +8,10 @@ export const setLoginFalse = ()=>{
         type: 'SET_LOGGED_IN_FALSE'
     }
 }
+
+export const setLoginDetails = details=>{
+    return{
+        type: 'SET_LOGIN_DETAILS',
+        payload: details
+    }
+}

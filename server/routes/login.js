@@ -23,7 +23,7 @@ router.post('/', async (req,res)=>{
     //Checking if username is correct
     if(req.body.username !== user.username) return res.json({status: 'incorrect username'})
 
-    res.json({status: 'last step left!'})
+    res.json({...user, status: 'last step left!'})
     //Creating and assigning a token
     // const token = jwt.sign({_id: user._id}, process.env.SECRET_TOKEN)
     // res.header('auth-token', token).json({token: token})

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {useHistory, Link} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
-import { setLoginTrue } from '../../actions/login'
+import { setLoginTrue, setLoginDetails } from '../../actions/login'
 import './Login.css'
 
 const Login = () => {
@@ -29,6 +29,7 @@ const Login = () => {
         .then(data=>{
             if(data.status === 'last step left!'){
                 dispatch(setLoginTrue())
+                dispatch(setLoginDetails({...data._doc}))
                 history.push('/')
             }
         })
