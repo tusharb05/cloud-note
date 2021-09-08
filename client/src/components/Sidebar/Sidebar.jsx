@@ -1,6 +1,7 @@
 import React, {useEffect, useCallback} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { setNotes } from '../../actions/notes'
+import SingleSidebarNote from '../SingleSidebarNote/SingleSidebarNote'
 import './Sidebar.css'
 
 const Sidebar = () => {
@@ -21,11 +22,12 @@ const Sidebar = () => {
         
     }, [fetchNotesTitle])
 
+    console.log(allNotes)
     return (
         <div id="sidebar">
             {
-                allNotes.map((note,index)=>{
-                    return <h1>{note.title}</h1>
+                allNotes[0]?.map((note,index)=>{
+                    return <SingleSidebarNote note={note} key={index}/>
                 })
             }
         </div>
