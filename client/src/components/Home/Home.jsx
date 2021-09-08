@@ -1,4 +1,5 @@
 import React from 'react'
+import MainSection from '../MainSection/MainSection'
 // import { useSelector } from 'react-redux'
 import Sidebar from '../Sidebar/Sidebar'
 
@@ -8,15 +9,10 @@ const Home = () => {
 
     return (
         <div>
-        {
-            <Sidebar/>
-            // loggedIn ? 
-            // <Sidebar/>
-            // :
-            // <Sidebar/>
-            // <h1>Log In First!</h1>
-            
-        }        
+
+        <Sidebar/>
+        <MainSection/>
+                 
         </div>
     )
 }
