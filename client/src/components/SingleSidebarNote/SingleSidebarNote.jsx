@@ -2,14 +2,24 @@ import React from 'react'
 import './SingleSidebarNote.css'
 import { useDispatch } from 'react-redux'
 import { setShowNote } from '../../actions/showNote'
+import { deleteNote } from '../../actions/notes'
 import {FaPen, FaTrash} from 'react-icons/fa'
 
 const SingleSidebarNote = (props) => {
     const dispatch = useDispatch()
 
     const deleteFunction = ()=>{
-        console.log(props)
-        //delete from redux
+        console.log('props: ',props)
+        dispatch(deleteNote(props.note))
+        fetch('http://localhost:5000/api/notes/delete', {
+            method: 'POST',
+            body: JSON.stringify(props.note),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>console.log('data from request: ', data))
         //delete from database
     }
 

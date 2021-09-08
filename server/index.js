@@ -5,6 +5,7 @@ const registerRoute = require('./routes/register')
 const loginRoute = require('./routes/login')
 const getNotes = require('./routes/getNotes')
 const cors = require('cors')
+const deleteNoteRoute = require('./routes/deleteNote')
 
 const PORT = process.env.PORT || 5000
 const app = express()
@@ -21,5 +22,6 @@ app.use(cors())
 app.use('/api/user/register', registerRoute)
 app.use('/api/user/login', loginRoute)
 app.use('/api/notes/titles', getNotes)
+app.use('/api/notes/delete', deleteNoteRoute)
 
 app.listen(PORT, ()=>console.log('Server running'))

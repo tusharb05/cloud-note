@@ -4,7 +4,7 @@ import './MainSection.css'
 
 const MainSection = () => {
     const note = useSelector(state=>state.showNoteReducer)
-    console.log(note)
+    // console.log(note)
     return (
         <div id="main-section-container">
             <h1>Hello</h1>

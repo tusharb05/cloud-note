@@ -26,7 +26,7 @@ const Sidebar = () => {
     return (
         <div id="sidebar">
             {
-                allNotes[0]?.map((note,index)=>{
+                allNotes?.map((note,index)=>{
                     return <SingleSidebarNote note={note} key={index}/>
                 })
             }

@@ -4,3 +4,9 @@ export const setNotes = notes=>{
         payload: notes
     }
 }
+export const deleteNote = note=>{
+    return{
+        type: 'DELETE_NOTE',
+        payload: note
+    }
+}
