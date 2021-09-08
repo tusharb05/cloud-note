@@ -14,7 +14,7 @@ const Sidebar = () => {
         fetch(`http://localhost:5000/api/notes/titles/${authorID}`)
         .then(res=>res.json())
         .then(data=>dispatch(setNotes(data.found)))
-    }, [authorID])
+    }, [authorID, dispatch])
 
     useEffect(()=>{
         fetchNotesTitle()
