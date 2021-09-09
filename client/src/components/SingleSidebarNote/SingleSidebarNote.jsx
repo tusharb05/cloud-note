@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './SingleSidebarNote.css'
 import { useDispatch } from 'react-redux'
 import { setShowNote } from '../../actions/showNote'
-import { deleteNote } from '../../actions/notes'
+import { deleteNote, editNote } from '../../actions/notes'
 import {FaPen, FaTrash} from 'react-icons/fa'
+import Popup from 'reactjs-popup'
 
 const SingleSidebarNote = (props) => {
+    const [edittedTitle, setEdittedTitle] = useState(props.note.title)
+    const [edittedBody, setEdittedBody] = useState(props.note.body)
+
     const dispatch = useDispatch()
 
     const deleteFunction = ()=>{
@@ -20,7 +24,29 @@ const SingleSidebarNote = (props) => {
         })
         .then(res=>res.json())
         .then(data=>console.log('data from request: ', data))
-        //delete from database
+    }
+
+    const updateFunction = e=>{
+        e.preventDefault()
+        // dispatch(editNote(props.note, edittedTitle, edittedBody))
+        //update redux store
+        
+        fetch(`http://localhost:5000/api/notes/update/${props.note._id}`, {
+            method:'POST',
+            body: JSON.stringify({
+                newTitle: edittedTitle,
+                newBody: edittedBody
+            }),
+            headers: {
+                'Content-type': 'application/json'
+            }
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            props.setUpdation(!props.updation)
+        })
+        //update the database
     }
 
     return (
@@ -31,10 +57,37 @@ const SingleSidebarNote = (props) => {
             :
             props.note.title}
             </h2>
+            
+            {/* <button className="edit-icon">
+                    <FaPen color="#50CB93"/>
+            </button> */}
+            <Popup 
+                trigger={<button className="edit-icon">
+                            <FaPen color="#50CB93"/>
+                        </button>} position="right">
 
-            <button className="edit-icon">
-                <FaPen color="#50CB93"/>
-            </button>
+                <div id="popup" style={{display:'flex',flexDirection:'column',justifyContent:'center',backgroundColor:'#4A403A',color:'#fff'}}>
+                    
+                    <form action="" onSubmit={e=>updateFunction(e)} style={{display:'flex',flexDirection:'column'}}>
+                    <h2>Edit</h2>
+                    <label htmlFor="">Title</label>
+                    <input 
+                        type="text" 
+                        required
+                        value={edittedTitle} 
+                        onChange={e=>setEdittedTitle(e.target.value)}/>
+
+                    <label htmlFor="">Body</label>
+                    <textarea 
+                        value={edittedBody} required id="" cols="30" rows="10"
+                        onChange={e=>setEdittedBody(e.target.value)}>
+                    </textarea>
+                    <button id="edit-submit-btn">Update Note</button>
+
+                    </form>
+                </div>
+
+            </Popup>
 
             <button onClick={deleteFunction} className="delete-icon">
                 <FaTrash color="#CD113B"/>

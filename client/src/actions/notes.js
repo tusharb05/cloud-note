@@ -10,3 +10,9 @@ export const deleteNote = note=>{
         payload: note
     }
 }
+export const editNote = (prevNote, newTitle, newBody)=>{
+    return{
+        type: 'EDIT_NOTE',
+        payload: {...prevNote, title:newTitle, body:newBody}
+    }
+}

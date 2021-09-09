@@ -1,4 +1,4 @@
-import React, {useEffect, useCallback} from 'react'
+import React, {useEffect, useCallback, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { setNotes } from '../../actions/notes'
 import SingleSidebarNote from '../SingleSidebarNote/SingleSidebarNote'
@@ -9,12 +9,13 @@ const Sidebar = () => {
     const allNotes = useSelector(state=>state.notesReducer)
     // console.log(authorID)
     const dispatch = useDispatch()
+    const [updation, setUpdation] = useState(false)
 
     const fetchNotesTitle = useCallback(()=>{
         fetch(`http://localhost:5000/api/notes/titles/${authorID}`)
         .then(res=>res.json())
         .then(data=>dispatch(setNotes(data.found)))
-    }, [authorID, dispatch])
+    }, [authorID, dispatch, updation])
 
     useEffect(()=>{
         fetchNotesTitle()
@@ -27,7 +28,7 @@ const Sidebar = () => {
         <div id="sidebar">
             {
                 allNotes?.map((note,index)=>{
-                    return <SingleSidebarNote note={note} key={index}/>
+                    return <SingleSidebarNote note={note} key={index} updation={updation} setUpdation={setUpdation}/>
                 })
             }
         </div>
