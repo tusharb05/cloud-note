@@ -1,13 +1,15 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import { addNote } from '../../actions/notes'
 
 const AddNote = () => {
     const [shown, setShown] = useState(false)
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
+    const dispatch = useDispatch()
 
     const id = useSelector(state=>state.loginReducer.details._id)
-
+    
     const handleSubmit = e=>{
         e.preventDefault()
         fetch('http://localhost:5000/api/notes/add', {
@@ -26,7 +28,8 @@ const AddNote = () => {
             setShown(false)
             setTitle('')
             setBody('')
-            console.log(data)
+            dispatch(addNote(data.note))
+            // console.log(data)
         })
     }
 
