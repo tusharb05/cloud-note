@@ -11,7 +11,7 @@ const Register = () => {
 
     async function handleSubmit(e){
         e.preventDefault()
-        fetch('/user/register', {
+        fetch('http://localhost:5000/api/user/register', {
             method: 'POST',
             body: JSON.stringify({
                 username,
