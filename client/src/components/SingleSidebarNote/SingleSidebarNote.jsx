@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './SingleSidebarNote.css'
 import { useDispatch } from 'react-redux'
 import { setShowNote } from '../../actions/showNote'
-import { deleteNote, editNote } from '../../actions/notes'
+import { deleteNote } from '../../actions/notes'
 import {FaPen, FaTrash} from 'react-icons/fa'
 import Popup from 'reactjs-popup'
 
@@ -13,7 +13,6 @@ const SingleSidebarNote = (props) => {
     const dispatch = useDispatch()
 
     const deleteFunction = ()=>{
-        console.log('props: ',props)
         dispatch(deleteNote(props.note))
         fetch('http://localhost:5000/api/notes/delete', {
             method: 'POST',
@@ -23,13 +22,11 @@ const SingleSidebarNote = (props) => {
             }
         })
         .then(res=>res.json())
-        .then(data=>console.log('data from request: ', data))
+        .then(data=>{})
     }
 
     const updateFunction = e=>{
         e.preventDefault()
-        // dispatch(editNote(props.note, edittedTitle, edittedBody))
-        //update redux store
         
         fetch(`http://localhost:5000/api/notes/update/${props.note._id}`, {
             method:'POST',
@@ -43,10 +40,9 @@ const SingleSidebarNote = (props) => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             props.setUpdation(!props.updation)
         })
-        //update the database
     }
 
     return (
@@ -58,9 +54,6 @@ const SingleSidebarNote = (props) => {
             props.note.title}
             </h2>
             
-            {/* <button className="edit-icon">
-                    <FaPen color="#50CB93"/>
-            </button> */}
             <Popup 
                 trigger={<button className="edit-icon">
                             <FaPen color="#50CB93"/>

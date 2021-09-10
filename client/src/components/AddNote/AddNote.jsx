@@ -9,6 +9,7 @@ const AddNote = () => {
     const dispatch = useDispatch()
 
     const id = useSelector(state=>state.loginReducer.details._id)
+    const loginDetails = useSelector(state=>state.loginReducer.details)
     
     const handleSubmit = e=>{
         e.preventDefault()
@@ -35,7 +36,10 @@ const AddNote = () => {
 
     return (
         <div>
-            <form action="" id="add-note-form" onSubmit={e=>handleSubmit(e)}>
+            {
+                Object.keys(loginDetails).length!==0 &&
+                
+                <form action="" id="add-note-form" onSubmit={e=>handleSubmit(e)}>
                 <input 
                     type="text" 
                     onFocus={()=>setShown(true)} 
@@ -50,7 +54,8 @@ const AddNote = () => {
                         onChange={e=>setBody(e.target.value)}/>
                 }
                 <button>Add Note</button>
-            </form>
+                </form>
+            }
         </div>
     )
 }

@@ -15,15 +15,14 @@ const Sidebar = () => {
         fetch(`http://localhost:5000/api/notes/titles/${authorID}`)
         .then(res=>res.json())
         .then(data=>dispatch(setNotes(data.found)))
-    }, [authorID, dispatch, updation])
+    }, [authorID, dispatch])
 
     useEffect(()=>{
         fetchNotesTitle()
-        console.log('hello')
-        
-    }, [fetchNotesTitle])
+        // console.log('hello')
+    }, [fetchNotesTitle, updation])
 
-    console.log(allNotes)
+    // console.log(allNotes)
     return (
         <div id="sidebar">
             {
