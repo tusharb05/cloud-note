@@ -35,31 +35,30 @@ const Register = () => {
         
     }
     return (
-        <div>
-            <form onSubmit={e=>handleSubmit(e)}>
-                <label htmlFor="">Username</label>
+        <div id="register-container">
+            <form onSubmit={e=>handleSubmit(e)} id="register-form">
+                <h1>Sign Up</h1>
                 <input 
                     type="text"
                     value={username}
                     onChange={e=>setUsername(e.target.value)}
                 />
 
-                <label htmlFor="">Email</label>
                 <input 
                     type="email"
                     value={email}
                     onChange={e=>setEmail(e.target.value)} 
                 />
 
-                <label htmlFor="">Password</label>
                 <input 
                     type="password"
                     value={password}
                     onChange={e=>setPassword(e.target.value)}/>
 
                 <button>Register</button>
+                <Link to="/login" id="link-register">Already have an account?</Link>
             </form>
-            <Link to="/login">Already have an account?</Link>
+            
         </div>
     )
 }
