@@ -8,9 +8,9 @@ const MainSection = () => {
     // console.log(note)
     return (
         <div id="main-section-container">
-            <h1>Hello</h1>
-            <h1>{note?.title}</h1>        
-            <h3>{note?.body}</h3>
+            {/* <h1>Hello</h1> */}
+            <h1 style={{margin:0}}>{note?.title}</h1>        
+            <h3 style={{margin:0}}>{note?.body}</h3>
             <AddNote/>
         </div>
     )

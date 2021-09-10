@@ -60,7 +60,7 @@ const Login = () => {
                     placeholder="Password"
                 />
 
-                <button>Add</button>
+                <button>Login</button>
                 <Link to="/register" id="link-login">Haven't registered yet?</Link>
             </form>
             

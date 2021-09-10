@@ -25,6 +25,9 @@ const Sidebar = () => {
     // console.log(allNotes)
     return (
         <div id="sidebar">
+            <div className="heading">
+                <h1>Cloud Note</h1>
+            </div>
             {
                 allNotes?.map((note,index)=>{
                     return <SingleSidebarNote note={note} key={index} updation={updation} setUpdation={setUpdation}/>

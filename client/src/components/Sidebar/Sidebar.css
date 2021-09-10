@@ -1,6 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 #sidebar{
     height:100%;
-    width:300px;
-    background-color: #79B4B7;
+    width:25%;
+    background-color: rgb(47, 47, 47);
     position: fixed;
+    color: white;
+    text-align: center;
+    padding-top: 0;
+    overflow: scroll;
+}
+#sidebar>.heading{
+    margin: auto;
+    width:70%;
+    padding: 0 20px 0 20px;
+    border-bottom: 2px solid whitesmoke;
+}
+#sidebar>.heading>h1{
+    margin: 0;
+    margin: 10px 0 15px 0;
+    font-family: 'Open Sans', sans-serif;
 }
