@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Glory&family=Roboto:wght@300&display=swap');
+
+#login-container{
+    width: 100%;
+    height: 100vh;
+    background-color: #130f0f;
+    color: white;
+    padding-top:7%
+}
+#login-form{
+    background-color: #131324;
+    display: flex;
+    flex-direction: column;
+    width:30%;
+    margin: auto;
+    padding: 50px 30px 50px 30px;
+    border-radius: 20px;
+}
+#login-form>input{
+    height:20px;
+    border:none;
+    margin-top:40px;
+    background-color: transparent;
+    border-bottom: 2px solid #481777;
+    color: white;
+    transition: all 300ms;
+    font-size: large;
+    letter-spacing: 1px;
+}
+#login-form::placeholder{
+    color: white;
+}
+#login-form>input:focus{
+    outline:none
+}
+#login-form>button{
+    font-size: large;
+    width:250px;
+    margin:auto;
+    margin-top:30px;
+    padding-top:5px;
+    padding-bottom:5px;
+    border:none;
+    outline:none;
+    cursor: pointer;
+    background-color: #b370f3;
+    color: white;
+}
+#login-form>h1{
+    /* font-family: 'Glory', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+    margin: auto;
+}
+#link-login{
+    margin: auto;
+    margin-top:20px;
+    text-decoration: none;
+    color: rgb(134, 134, 134);
+}
+
+@media screen and (max-width:1200px){
+    #login-form{
+        width:50%
+    }
+}
+
+@media screen and (max-width:900px){
+    #login-form{
+        width:60%;
+        margin-top:10%;
+    }
+}
+
+@media screen and (max-width:500px){
+    #login-form{
+        width:75%;
+        margin-top:20%;
+    }
+}

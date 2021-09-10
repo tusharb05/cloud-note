@@ -36,31 +36,34 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={e=>handleLogin(e)}>
-                <label htmlFor="">Username</label>
+        <div id="login-container">
+            <form onSubmit={e=>handleLogin(e)} id="login-form">
+                <h1>Login</h1>
                 <input 
                     type="text"
                     value={username}
                     onChange={e=>setUsername(e.target.value)}
+                    placeholder="Username"
                 />
 
-                <label htmlFor="">Email</label>
                 <input 
                     type="email"
                     value={email}
                     onChange={e=>setEmail(e.target.value)} 
+                    placeholder="Email"
                 />
 
-                <label htmlFor="">Password</label>
                 <input 
                     type="password"
                     value={password}
-                    onChange={e=>setPassword(e.target.value)}/>
+                    onChange={e=>setPassword(e.target.value)}
+                    placeholder="Password"
+                />
 
                 <button>Add</button>
+                <Link to="/register" id="link-login">Haven't registered yet?</Link>
             </form>
-            <Link to="/register">Haven't registered yet?</Link>
+            
         </div>
     )
 }
