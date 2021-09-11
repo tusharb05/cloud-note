@@ -8,9 +8,9 @@ router.get('/:id', async (req,res)=>{
     //     body: 'body of the third title go brrrrr'
     // })
     // let savedNote = await newNote.save()
-    console.log(req.params.id)
+    // console.log(req.params.id)
     const notesList = await Note.find({authorID: req.params.id})
-    console.log(notesList)
+    // console.log(notesList)
     // console.log('recieved')
     res.json({found: notesList})
 })

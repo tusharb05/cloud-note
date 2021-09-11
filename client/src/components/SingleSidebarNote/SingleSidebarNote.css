@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap');
+#single-note{
+    display: flex;
+    width:90%;
+    margin: auto;
+    /* margin-top: 10px; */
+    justify-content: space-between;
+    text-align: left;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    align-items: center;
+}
+#single-note>.heading{
+    max-width: 50%;
+    background-color: blue;
+}
+.edit-icon, .delete-icon{
+    margin-top:5%;
+    background-color: transparent;
+    height: fit-content;
+    border: none;
+    cursor: pointer;
+}
+.edit-icon:hover, .delete-icon:hover{
+    cursor: pointer;
+}

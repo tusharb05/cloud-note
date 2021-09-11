@@ -9,7 +9,7 @@ const notesReducer = (state=[], action)=>{
             return newList
 
         case 'ADD_NOTE':
-            return [action.payload, ...state]
+            return [...state, action.payload]
 
         default: 
             return state

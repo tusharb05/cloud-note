@@ -22,7 +22,7 @@ const SingleSidebarNote = (props) => {
             }
         })
         .then(res=>res.json())
-        .then(data=>{})
+        .then(data=>{dispatch(setShowNote(''))})
     }
 
     const updateFunction = e=>{
@@ -46,13 +46,16 @@ const SingleSidebarNote = (props) => {
     }
 
     return (
-        <div style={{cursor:'pointer'}} onClick={()=>dispatch(setShowNote(props.note))}>
-            <h2>
-            {props.note.title.length>14 ? 
-            props.note.title.substring(0,14) + '..'
-            :
-            props.note.title}
-            </h2>
+        <div id="single-note" style={{cursor:'pointer'}} onClick={()=>dispatch(setShowNote(props.note))}>
+            <div className="title" style={{maxWidth:'90%', width:'90%',wordBreak:'break-word'}}>
+                <h2 style={{marginTop:'13px',marginBottom:'0'}}>
+                {props.note.title.length>24 ? 
+                props.note.title.substring(0,44) + '...'
+                :
+                props.note.title
+                }
+                </h2>
+            </div>
             
             <Popup 
                 trigger={<button className="edit-icon">

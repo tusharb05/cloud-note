@@ -2,17 +2,19 @@
 
 #sidebar{
     height:100%;
-    width:25%;
-    background-color: rgb(47, 47, 47);
+    width:27%;
+    /* background-color: rgb(10, 1, 17); */
+    background-color: rgb(10, 6, 29);
     position: fixed;
     color: white;
     text-align: center;
     padding-top: 0;
     overflow: scroll;
 }
+
 #sidebar>.heading{
     margin: auto;
-    width:70%;
+    width: 80%;
     padding: 0 20px 0 20px;
     border-bottom: 2px solid whitesmoke;
 }
