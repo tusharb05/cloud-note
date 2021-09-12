@@ -41,14 +41,15 @@ const SingleSidebarNote = (props) => {
         .then(res=>res.json())
         .then(data=>{
             // console.log(data)
+            dispatch(setShowNote(''))
             props.setUpdation(!props.updation)
         })
     }
 
     return (
-        <div id="single-note" style={{cursor:'pointer'}} onClick={()=>dispatch(setShowNote(props.note))}>
+        <div id="single-note" style={{cursor:'pointer'}}>
             <div className="title" style={{maxWidth:'90%', width:'90%',wordBreak:'break-word'}}>
-                <h2 style={{marginTop:'13px',marginBottom:'0'}}>
+                <h2 style={{marginTop:'13px',marginBottom:'0'}} onClick={()=>dispatch(setShowNote(props.note))}>
                 {props.note.title.length>24 ? 
                 props.note.title.substring(0,44) + '...'
                 :
@@ -62,23 +63,23 @@ const SingleSidebarNote = (props) => {
                             <FaPen color="#50CB93"/>
                         </button>} position="right">
 
-                <div id="popup" style={{display:'flex',flexDirection:'column',justifyContent:'center',backgroundColor:'#4A403A',color:'#fff'}}>
+                <div id="popup">
                     
-                    <form action="" onSubmit={e=>updateFunction(e)} style={{display:'flex',flexDirection:'column'}}>
-                    <h2>Edit</h2>
-                    <label htmlFor="">Title</label>
-                    <input 
-                        type="text" 
-                        required
-                        value={edittedTitle} 
-                        onChange={e=>setEdittedTitle(e.target.value)}/>
+                    <form action="" onSubmit={e=>updateFunction(e)} >
+                        <h2>Edit The Note</h2>
+                        <label htmlFor="">Title</label>
+                        <input 
+                            type="text" 
+                            required
+                            value={edittedTitle} 
+                            onChange={e=>setEdittedTitle(e.target.value)}/>
 
-                    <label htmlFor="">Body</label>
-                    <textarea 
-                        value={edittedBody} required id="" cols="30" rows="10"
-                        onChange={e=>setEdittedBody(e.target.value)}>
-                    </textarea>
-                    <button id="edit-submit-btn">Update Note</button>
+                        <label htmlFor="">Body</label>
+                        <textarea 
+                            value={edittedBody} required id="" cols="30" rows="5"
+                            onChange={e=>setEdittedBody(e.target.value)}>
+                        </textarea>
+                        <button id="edit-submit-btn">Update Note</button>
 
                     </form>
                 </div>

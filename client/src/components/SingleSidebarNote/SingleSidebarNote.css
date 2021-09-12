@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Urbanist:wght@200&display=swap');
 #single-note{
     display: flex;
     width:90%;
@@ -25,3 +27,66 @@
 .edit-icon:hover, .delete-icon:hover{
     cursor: pointer;
 }
+#popup{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(212, 212, 212);
+    width:300px;
+    margin-top:100px;
+    border-radius: 4px;
+}
+#popup>form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+    max-width:100%;
+}
+#popup>form>h2{
+    margin: auto;
+    margin-bottom:10px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+#popup>form>input, #popup>form>textarea{
+    background-color: aliceblue;
+    border: none;
+    font-size:1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+#popup>form>input{
+    height:30px;
+}
+#popup>form>input:focus, #popup>form>textarea:focus{
+    outline: none
+}
+#popup>form>label{
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Urbanist', sans-serif; */
+    font-weight: 700;
+    font-size:larger
+}
+#popup>form>textarea{
+    resize: vertical;
+}
+#popup>form>button{
+    border:none;
+    font-size: large;
+    width:70%;
+    margin: auto;
+    margin-top:20px;
+    margin-bottom:10px;
+    padding:5px 0 5px 0;
+    background-color: rgb(231, 71, 71);
+    border-radius: 3px;
+    cursor: pointer;
+    transition-duration: 500ms;
+    color: white;
+}
+#popup>form>button:hover{
+    background-color: rgb(195, 61, 61);
+}
+/* style={{display:'flex',flexDirection:'column'}} */
+
+/* style={{display:'flex',flexDirection:'column',justifyContent:'center',backgroundColor:'#4A403A',color:'#fff'}} */

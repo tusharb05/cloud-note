@@ -4,7 +4,9 @@
     height:100%;
     width:27%;
     /* background-color: rgb(10, 1, 17); */
-    background-color: rgb(10, 6, 29);
+    /* background-color: rgb(10, 6, 29); */
+    background-color: #1a1d1f;
+    /* background-color: #5abbfb; */
     position: fixed;
     color: white;
     text-align: center;
@@ -17,6 +19,7 @@
     width: 80%;
     padding: 0 20px 0 20px;
     border-bottom: 2px solid whitesmoke;
+    margin-bottom:20px;
 }
 #sidebar>.heading>h1{
     margin: 0;
