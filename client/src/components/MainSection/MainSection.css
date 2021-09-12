@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Ubuntu&display=swap');
+
 #main-section-container{
     height:100%;
     /* background-color: rgb(71, 71, 71); */
@@ -8,4 +11,21 @@
     color: black;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    padding-top:40px;
+}
+#main-section-container>h1{
+    font-size: 3rem;
+    text-transform: capitalize;
+    font-family: 'Ubuntu', sans-serif;
+    padding-bottom: 50px;
+}
+#main-section-container>h1::selection, #main-section-container>h3::selection{
+    background-color: #282c2e;
+    color: white
+}
+#main-section-container>h3{
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    text-transform: capitalize;
 }
