@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { addNote } from '../../actions/notes'
+import './AddNote.css'
+import {useHistory} from 'react-router-dom'
 
 const AddNote = () => {
     const [shown, setShown] = useState(false)
@@ -10,6 +12,7 @@ const AddNote = () => {
 
     const id = useSelector(state=>state.loginReducer.details._id)
     const loginDetails = useSelector(state=>state.loginReducer.details)
+    const history = useHistory()
     
     const handleSubmit = e=>{
         e.preventDefault()
@@ -35,11 +38,15 @@ const AddNote = () => {
     }
 
     return (
-        <div>
+        <div id="addnote-container" style={{display:'flex'}}>
             {
                 Object.keys(loginDetails).length!==0 &&
                 
-                <form action="" id="add-note-form" onSubmit={e=>handleSubmit(e)}>
+                <form action="" id="addnote-form" onSubmit={e=>handleSubmit(e)}>
+                {
+                    !shown && 
+                    <h1 style={{color:'white'}}>Add A Note</h1>
+                }
                 <input 
                     type="text" 
                     onFocus={()=>setShown(true)} 
@@ -51,11 +58,43 @@ const AddNote = () => {
                     <textarea 
                         placeholder="Body"
                         value={body}
-                        onChange={e=>setBody(e.target.value)}/>
+                        onChange={e=>setBody(e.target.value)}
+                        style={{height:'80%'}}/>
                 }
-                <button>Add Note</button>
+                {
+                    shown &&
+                    <button>Add Note</button>
+                }
+                
                 </form>
             }
+            <div className="utilites-btn" style={{display:'flex',alignItems:'center', height:'100%', width:'70%', justifyContent:'center'}}>
+                {
+                    Object.keys(loginDetails).length===0 ?
+
+                    <div 
+                    style={{
+                        display:'flex',
+                        flexDirection:'column',
+                        padding:'20px 30px 20px 30px',
+                        margin:'auto'}}>
+
+                        <button className="asdf" onClick={()=>history.push('/login')}>Sign In</button>
+
+                        <button className="asdf" onClick={()=>history.push('/register')}>Register</button>
+                    </div>
+                    :
+                    <div
+                    style={{
+                        position:'absolute',
+                        right:'10%'
+                    }}
+                    >
+                        <button className="signout-btn" onClick={()=>window.location.reload()}>Sign Out</button>
+                    </div>
+                    
+                }
+            </div>
         </div>
     )
 }

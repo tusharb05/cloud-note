@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+
+#addnote-container{
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+    margin:0;
+    height: 100%;
+    background-color: #1a1d1f;
+}
+#addnote-form{
+    display: flex;
+    flex-direction: column;
+    width:60%;  
+    /* background-color: red; */
+    margin: 0;
+}
+#addnote-form>input:focus, #addnote-form>textarea:focus{
+    outline: none
+}
+#addnote-form>input{
+    font-size: 1.4rem;
+    height:40%;
+    margin-top:20px;
+    margin-left:20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+#addnote-form>textarea{
+    resize: none;
+    font-size: 1.4rem;
+    margin-left:20px;
+    margin-top:10px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+#addnote-form>button{
+    margin-left: 20px;
+    border:none;
+    background-color: rgb(25, 107, 214);
+    border:2px solid rgb(25, 107, 214);
+    width:65%;
+    margin:auto;
+    margin-top:10px;
+    padding: 5px 0 5px 0;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 400ms;
+    color: white;
+}
+#addnote-form>button:hover{
+    background-color: rgb(44, 44, 44);
+    color:white
+}
+.asdf{
+    border:none;
+    background-color: rgb(25, 107, 214);
+    /* width:100%; */
+    max-width: fit-content;
+    margin:auto;
+    margin-top:10px;
+    padding: 10px 50px 10px 50px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 400ms;
+    color: white;
+}
+.asdf:hover{
+    background-color: rgb(23, 88, 172);
+}
+.signout-btn{
+    border:none;
+    background-color: rgb(25, 107, 214);
+    padding: 10px 15px 10px 15px;
+    font-size: large;
+    border-radius: 5px;
+    cursor: pointer;
+    transition-duration: 400ms;
+    color: white;
+}
